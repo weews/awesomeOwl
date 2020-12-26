@@ -1,0 +1,40 @@
+import math # need to use atan instruction from math module in line 15
+
+class Point: # create Point class in Python
+             # Point contains two properties x and y
+             # Point contains four functions
+             
+    def __init__(self): # this function is essential in Python
+                        # its purpose is to assign values to properties
+        x = int(input("Enter x-coordinate: ")) # prompt user to enter 
+        y = int(input("Enter y-coordinate: ")) # both coordinates
+        self.x = x
+        self.y = y
+        print('(', self.x, ', ', self.y, ')', sep = "") # display the point
+    
+    def distance(self): # this function calculates distance of the point
+                        # from the origin
+        return (self.x ** 2 + self.y ** 2) ** 0.5
+        
+    def angle(self): # this function calculates angle of the point
+                     # with reference to the origin
+        return (math.atan(self.y / self.x))
+
+    def gradient(self, other): # this function computes gradient with
+                               # two points
+        return ((other.y - self.y) / (other.x - self.x))
+
+# create pt1, an object of Point type
+pt1 = Point()
+
+# call distance function
+print(format(pt1.distance(), '.2f'), "units from the origin")
+
+# call angle function
+print(format(pt1.angle(), '.2f'), "radians with reference to the origin")
+
+# create pt2, another object of Point type
+pt2 = Point()
+
+# call gradient function
+print("Gradient: ", format(pt2.gradient(pt1), '.2f'), sep = "")
