@@ -1,0 +1,49 @@
+# A program to model the flow of customers through a check-out line in a store
+
+# Copy and paste the code below into: 
+# https://www.onlinegdb.com/online_python_compiler
+# to run the program
+
+# use random module to generate a random number later
+import random
+
+# create an empty queue
+queue = []
+
+# initialise customer ID to one
+custID = 1
+
+# loop for n minutes
+for time in range(10):
+    
+    print("During minute", time+1)
+
+    # remove a customer at the front
+    # use pop(0) instruction in Python
+    if len(queue) != 0:
+        queue.pop(0)
+        print("Customer removed")
+        print("Queue:", queue)
+
+    # generate k, a random number 0 - 3
+    k = random.randint(0, 3)
+
+    # add one, two, no customers depending on k
+    # use append instruction in Python
+    if k == 1:
+        queue.append(custID)
+        custID += 1
+        print("1 customer added")
+        print("Queue:", queue)
+        
+    elif k == 2:
+        queue.append(custID)
+        custID += 1
+        queue.append(custID)
+        custID += 1
+        print("2 customers added")
+        print("Queue:", queue)
+        
+    else:
+        print("No customers added")
+        print("Queue:", queue)
